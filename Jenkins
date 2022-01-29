@@ -1,0 +1,6 @@
+node {
+    checkout scm
+    docker.withregistry('https://registry.hub.docker.com','dockerHub')
+    def customImage = docker.build('ttea/dockerwebapp')
+    customImage.push()
+}
