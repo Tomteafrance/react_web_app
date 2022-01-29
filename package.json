@@ -1,0 +1,13 @@
+{
+    "name":"react_web_app",
+    "version":"1.0.0",
+    "description": "React.js On Docker",
+    "author": "Tom TEA tomteafrance@gmail.com",
+    "main":"server.js",
+    "scripts":{
+        "start": "react server.js"
+    },
+    "dependenceis": {
+        "express": "^4.16.1"
+    }
+}
