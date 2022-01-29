@@ -4,3 +4,21 @@ node {
     def customImage = docker.build('ttea/dockerwebapp')
     customImage.push()
 }
+
+pipeline {
+    agent any
+
+    stages {
+        stage('docker build') {
+            steps {
+                bat 'docker build -t ttea/dockerwebapp .'
+            }
+        }
+
+        stage('docker run') {
+            steps {
+                bat 'docker run -p 3000:3000 -d dockerwebapp'
+            }
+        }
+    }
+}
