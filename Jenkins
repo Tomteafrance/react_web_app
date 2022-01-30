@@ -8,14 +8,20 @@ node {
 pipeline {
     agent any
 
-    stages {
-        stage('docker build') {
+stages {
+    stage('Cloning') {
+        steps {
+                bat  'cd ./react_web_app && git pull'
+            }
+        }
+    
+    stage('docker build') {
             steps {
                 bat 'docker build -t ttea/dockerwebapp .'
             }
         }
 
-        stage('docker run') {
+    stage('docker run') {
             steps {
                 bat 'docker run -p 3000:3000 -d dockerwebapp'
             }
